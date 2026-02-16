@@ -1,0 +1,19 @@
+services:
+  - type: worker
+    name: cupom-bot
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    plan: free
+    envVars:
+      - key: TELEGRAM_TOKEN
+        sync: false
+      - key: TELEGRAM_CHAT_ID
+        sync: false
+```
+
+### `.env.example`
+```
+TELEGRAM_TOKEN=seu_token_aqui
+TELEGRAM_CHAT_ID=seu_chat_id_aqui
+SEEN_FILE=/tmp/seen_coupons.json
